@@ -2,16 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import todoRouter from './routers/TodosRouter.js'; // Ensure correct path
+import myRouter from './routers/TodosRouter.js'; 
 
-dotenv.config(); // Load environment variables from .env file
+dotenv.config(); 
 
 const app = express();
-app.use(cors());
-app.use(express.json()); // Middleware to parse JSON
+app.use(cors()); 
+app.use(express.json()); 
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mydata', { // Use environment variable for URI
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mydata', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -20,11 +20,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mydata', { // U
 
 
 app.get('/', (req, res) => {
-    res.send('Hello from server side');
+    res.send('Hello from the server side');
 });
 
 
-app.use('/api/v1', todoRouter);
+app.use('/api/v1', myRouter);
+
+
 
 
 const PORT = process.env.PORT || 5000; 

@@ -1,9 +1,15 @@
 import express from 'express';
-import { createTodo } from '../controller/TodosController.js'; // Ensure correct spelling of 'Controller'
+import { createTodo, getTodos, deleteTodo } from '../controller/TodosController.js'; 
 
-const todoRouter = express.Router();
+const myRouter = express.Router();
+//post methos
 
-// Corrected route path to include leading slash
-router.post('/add-todos', createTodo);
+myRouter.post('/add-todos', createTodo);
 
-export default todoRouter;
+// GET methods
+myRouter.get('/todos', getTodos);
+
+// DELETE methods
+myRouter.delete('/todos/:id', deleteTodo);
+
+export default myRouter;
