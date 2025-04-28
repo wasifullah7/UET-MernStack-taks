@@ -1,0 +1,71 @@
+.todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.todo-table th,
+.todo-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-table th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: normal;
+}
+
+.todo-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-btn {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Add these styles to prevent overflow */
+.todo-table td {
+    word-wrap: break-word;
+    /* Break long words to avoid overflow */
+    max-width: 200px;
+    /* Optional: limit width of description column */
+    overflow-wrap: break-word;
+    /* Handle long words or lines */
+}
+
+.todo-table {
+    table-layout: fixed;
+    /* Makes the table cells have consistent width */
+}
+
+.todo-table th,
+.todo-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+    /* Make text inside the cells break properly */
+}
+
+/* Ensure table columns wrap text and stay within the box */
+.todo-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.todo-table .desc-cell {
+    max-width: 200px;
+    white-space: normal;
+    word-break: break-word;
+}
