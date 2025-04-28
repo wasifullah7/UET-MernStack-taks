@@ -18,7 +18,7 @@ cd backend
 
 2. Install Go dependencies:
 ```
-go mod download
+go mod tidy
 ```
 
 3. Run the server:
@@ -52,4 +52,4 @@ The frontend application will be available at http://localhost:3000
 - `GET /api/todos`: Get all todo items
 - `POST /api/todos`: Create a new todo item
 - `PUT /api/todos/:id`: Update a todo item's status
-- `DELETE /api/todos/:id`: Delete a todo item 
+- `DELETE /api/todos/:id`: Delete a todo item
