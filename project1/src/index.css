@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+}
+#khan{
+    color: white;
+    justify-content: center;
+    margin-left: 400px;
+}
+#khan ul li{
+    justify-content: center;
+    
+}
