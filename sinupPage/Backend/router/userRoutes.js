@@ -1,5 +1,6 @@
 import  express from 'express'
-import { singUp } from '../controlller/userController'
+import { signup } from '../controlller/userController.js'
+import { login } from '../controlller/userController.js'
 
 
 
@@ -7,7 +8,9 @@ import { singUp } from '../controlller/userController'
 const myRouter = express.Router()
 
 
-myRouter.post('/signup', singUp)
+myRouter.post('/signup', signup)
+
+myRouter.post('/login', login)
 
 
 
