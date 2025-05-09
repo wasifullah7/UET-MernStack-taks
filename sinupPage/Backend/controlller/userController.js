@@ -78,3 +78,36 @@ export const login = async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 };
+
+
+
+ // Adjust the import based on your file structure
+
+export const getUserData = async (req, res) => {
+    const token = req.headers["authorization"];
+    if (!token ) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+        const decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
+        const user = await userData.findOne({ email: decoded.email });
+        
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json(user);
+    } catch (err) {
+        console.error('Error:', err);
+        if (err.name === 'JsonWebTokenError') {
+            return res.status(401).json({ message: "Invalid token" });
+        } else if (err.name === 'TokenExpiredError') {
+            return res.status(401).json({ message: "Token has expired" });
+        }
+        res.status(500).json({ message: "Internal server error", details: err.message });
+    }
+}
+
+
+
