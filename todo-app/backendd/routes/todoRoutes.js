@@ -5,15 +5,14 @@ const Todo = require('../models/todoModels')
 const {getTodo,
 createTodo,
 deleteTodo,
-updateTodo} = require('../controller/todoController')
+updateTodo} = require('../controller/todoController');
+const authenticateToken = require("../middleware/auth");
 // GET all todos
-router.get("/",getTodo);
-
+router.get("/",authenticateToken,getTodo);
 // POST a new todo
-router.post("/", createTodo);
-
+router.post("/",authenticateToken, createTodo);
 // DELETE a todo
-router.delete("/:id",deleteTodo);
-router.put("/:id",updateTodo);
+router.delete("/:id",authenticateToken,deleteTodo);
+router.put("/:id",authenticateToken,updateTodo);
 
 module.exports = router;

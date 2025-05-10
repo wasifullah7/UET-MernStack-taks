@@ -1,13 +1,19 @@
 const Todo = require('../models/todoModels')
 
-exports.getTodo = async (req,res)=>{
-    const todos = await Todo.find().sort({createdAt: -1})
-    res.json(todos)
-}
+exports.getTodo = async (req, res) => {
+  try {
+    //in get if we use Todo , so we will see Todo's oon every logIn, so that's why i used User.id
+    const todos = await Todo.find({ user: req.user.id }).sort({ createdAt: -1 });
+    res.json(todos);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 
 exports.createTodo = async (req,res)=>{
     try {
-        const todos = await Todo.create({title:req.body.title})
+        const todos = await Todo.create({title:req.body.title,user: req.user.id})
         res.json(todos)
     } catch (error) {
         res.status(400).json({ error: error.message });
