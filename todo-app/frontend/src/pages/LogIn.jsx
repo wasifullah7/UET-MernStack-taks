@@ -50,7 +50,7 @@ const LogIn = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-gray-100 to-gray-200">
       <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">
+        <h2 className="text-2xl font-bold text-gray-700 mb-2 text-center">
           {state === "signup" ? "Create Account" : "Log In"}
         </h2>
         <p className="text-gray-500 mb-6 text-center">

@@ -72,7 +72,7 @@ const EmailVerify = () => {
   return (
     <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg mx-auto">
       <h2 className="text-2xl font-semibold text-center mb-4">Email Verification</h2>
-      <p className="text-sm text-gray-500 text-center mb-8">Enter the OTP sent to your email</p>
+      <p className="text-sm text-gray-700 text-center mb-8">Enter the OTP sent to your email</p>
 
       <div className="flex justify-center gap-4 mb-8">
         {Array(6).fill().map((_, index) => (

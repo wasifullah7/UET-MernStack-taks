@@ -59,17 +59,17 @@ const ResetPass = () => {
     <div className="max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg">
       {step === 1 && (
         <>
-          <h2 className="text-xl font-semibold mb-4 text-center">Reset Your Password</h2>
+          <h2 className="text-xl font-semibold mb-5 text-center">Reset Your Password</h2>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full mb-4 px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           <button
             onClick={handleEmailSubmit}
-            className="w-full py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+            className="w-full py-3 bg-green-500 text-white rounded-md hover:bg-emerald-600"
           >
             Send OTP
           </button>
