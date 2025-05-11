@@ -1,0 +1,15 @@
+{
+  "name": "user-authentication-system",
+  "version": "1.0.0",
+  "description": "Full-stack user authentication system with Go backend and React frontend",
+  "scripts": {
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && go run main.go",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "cd frontend && npm run build",
+    "vercel-build": "npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+} 
