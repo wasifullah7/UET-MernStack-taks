@@ -1,0 +1,125 @@
+:root {
+  --primary-color: #4285f4;
+  --secondary-color: #34a853;
+  --danger-color: #ea4335;
+  --dark-color: #202124;
+  --light-color: #f8f9fa;
+  --success-color: #34a853;
+  --border-color: #e1e1e1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.login-container,
+.register-container,
+.dashboard-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-primary,
+.btn-logout {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover,
+.btn-logout:hover {
+  background-color: #3367d6;
+}
+
+.btn-logout {
+  background-color: var(--danger-color);
+}
+
+.btn-logout:hover {
+  background-color: #c62828;
+}
+
+.link {
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #3367d6;
+}
+
+.error-message {
+  background-color: #ffebee;
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.user-info {
+  margin: 1.5rem 0;
+}
+
+p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.dashboard-container {
+  max-width: 600px;
+}
