@@ -6,7 +6,7 @@ A simple blog application using React (frontend) and Node.js + Express (backend)
 
 ### 1. Clone the repository
 
-``bash
+```bash
 git clone https://github.com/your-username/blog-app.git
 cd blog-app
 
