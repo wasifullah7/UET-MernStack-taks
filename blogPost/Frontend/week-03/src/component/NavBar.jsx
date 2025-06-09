@@ -26,6 +26,13 @@ const NavBar = () => {
       >
         <h1>Post Details</h1>
       </NavLink>
+      <NavLink 
+        to="/pagination" 
+        className="text-white text-lg hover:text-blue-400 transition duration-300"
+        activeClassName="border-b-2 border-blue-400"
+      >
+        <h1>Pagination</h1>
+      </NavLink>
     </nav>
   );
 };

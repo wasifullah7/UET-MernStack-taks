@@ -5,6 +5,7 @@ import Blogs from './pages/Blogs';
 import NavBar from './component/NavBar';
 import Form from './pages/Form';
 import PostDetails from './pages/PostDetails'; // Import the PostDetails component
+import Pagination from './pages/Pagination';
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Form />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/posts/:id" element={<PostDetails />} /> {/* Route for post details */}
+          <Route path="/posts/:id" element={<PostDetails />} /> Route for post details
+          <Route path="/pagination" element={<Pagination />} /> Route for pagination
         </Routes>
       </div>
     

@@ -5,8 +5,11 @@ import axios from 'axios';
 const PostDetails = () => {
   const { id } = useParams(); // Get post ID from the URL
   const [post, setPost] = useState(null);
+  const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [author, setAuthor] = useState('');
+  const [content, setContent] = useState('');
   const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
@@ -21,8 +24,30 @@ const PostDetails = () => {
       }
     };
 
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/blog/posts/${id}/comments`);
+        setComments(response.data);
+      } catch (err) {
+        setError('Error fetching comments');
+      }
+    };
+
     fetchPost();
+    fetchComments();
   }, [id]);
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`http://localhost:3000/blog/posts/${id}/comments`, { author, content });
+      setComments([...comments, response.data]);
+      setAuthor('');
+      setContent('');
+    } catch (err) {
+      setError('Error submitting comment');
+    }
+  };
 
   if (loading) return <div className="text-center">Loading...</div>;
   if (error) return <div className="text-center text-red-500">{error}</div>;
@@ -43,6 +68,40 @@ const PostDetails = () => {
             Back to Blogs
           </button>
         </div>
+      </div>
+
+      {/* Comments Section */}
+      <div className="mt-8 p-8 bg-white rounded-lg shadow-lg">
+        <h3 className="text-3xl font-bold mb-4">Comments</h3>
+        {comments.length === 0 ? (
+          <p>No comments yet.</p>
+        ) : (
+          comments.map(comment => (
+            <div key={comment._id} className="mb-4">
+              <strong>{comment.author}</strong>: {comment.content}
+            </div>
+          ))
+        )}
+        <form onSubmit={handleCommentSubmit} className="mt-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            required
+            className="border p-2 w-full mb-2"
+          />
+          <textarea
+            placeholder="Your Comment"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            required
+            className="border p-2 w-full mb-2"
+          />
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Add Comment
+          </button>
+        </form>
       </div>
     </div>
   );
