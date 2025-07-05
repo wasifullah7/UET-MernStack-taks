@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { useState } from 'react';
 import {ToastContainer, toast} from 'react-toastify';
 
@@ -23,9 +22,8 @@ const handlesubmit = async (e) => {
       return toast.error('Please fill all the fields');
     }
     try {
-        const reponse = await axios.post('http://localhost:8000/blog/posts/', blog);
-        const {status, data} = reponse;
-        if(status === 201) {
+        const response = await axios.post('http://localhost:8000/blog/posts/', blog);
+        if(response.status === 201) {
             toast.success('Blog post created successfully');
             setBlog({ title: '', content: '' }); // Reset the form
         }
