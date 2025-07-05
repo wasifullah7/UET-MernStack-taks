@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import {ToastContainer, toast} from 'react-toastify';
 
-const New = (getBlogs) => {
+const New = ({getBlogs}) => {
     const [blog, setBlog] = useState({
         title: '',
         content: ''
