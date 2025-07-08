@@ -28,19 +28,13 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-    const {username, email, password} = req.body;
+    const { email, password} = req.body;
 
     const errorMsg = "Authentication failed: Email or Password is Incorrect.";
     const user = await UserModel.findOne({ email });
     if(!user){
         return res.status(403).json({ message: errorMsg, success: false });
     }
-    
-    const usermodel = new UserModel({
-        username,
-        email,
-        password
-    });
     
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if(!isPasswordValid){
