@@ -21,9 +21,6 @@ let displayComments = async (req, res) => {
         let {id} = req.params;
         const comments = await Comment.find({ blogId: id });
 
-        if(!comments || comments.length === 0) {
-            return res.status(404).json({ message: 'No comments found for this blog post' });
-        }
         res.status(200).json(comments);
     }
     catch (error) {

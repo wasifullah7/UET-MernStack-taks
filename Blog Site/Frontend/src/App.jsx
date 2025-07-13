@@ -7,6 +7,7 @@ import About from './pages/About';
 import New from './pages/New';
 import Posts from './pages/Posts';
 import Post from './components/post';
+import ScrolltoTop from './components/ScrolltoTop';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
   return (
     <div className="">
         <Navigationbar />
+        <ScrolltoTop />
         <div className='text-center border-blue-500 border-2 p-4 mx-60 my-5 rounded-lg'>
         <Routes>
           <Route path="/" element={<Home blogs={blogs} slugify={slugify} />} />
