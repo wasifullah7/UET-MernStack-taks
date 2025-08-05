@@ -16,7 +16,7 @@ const Todotable = ({todos, getTodos, setFormdata}) => {
       confirmButtonText: "Yes, delete it!"
     })
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:8000/todo/api/remove/${id}/`)
+        await axios.delete(`${import.meta.env.VITE_Backend_BaseUrl}/todo/api/remove/${id}/`)
         toast.success("Enquiry Deleted Successfully");
         getTodos();
 
@@ -29,7 +29,7 @@ const Todotable = ({todos, getTodos, setFormdata}) => {
     };
 
   let editRow = (id) => {
-    axios.get(`http://localhost:8000/todo/api/single/${id}/`).then((response) => {
+    axios.get(`${import.meta.env.VITE_Backend_BaseUrl}/todo/api/single/${id}/`).then((response) => {
       let respdata = response.data;
       if (respdata.status == 1) {
         setFormdata({

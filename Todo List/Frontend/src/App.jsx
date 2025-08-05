@@ -15,7 +15,7 @@ function App() {
   });
 
   let getTodos = async () => {
-    await axios.get('http://localhost:8000/todo/api/view/').then((response) => {
+    await axios.get(`${import.meta.env.VITE_Backend_BaseUrl}/todo/api/view/`).then((response) => {
       return response.data;
     }).then(finaldata =>{
       if(finaldata.status==1){

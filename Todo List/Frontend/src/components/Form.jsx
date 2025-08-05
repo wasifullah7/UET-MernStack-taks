@@ -20,7 +20,7 @@ const Form = ({getTodos, formdata, setFormdata}) => {
   let saveInfo = async (e) => {
     e.preventDefault();
     if(formdata._id) {
-      await axios.put(`http://localhost:8000/todo/api/update/${formdata._id}/`, formdata)
+      await axios.put(`${import.meta.env.VITE_Backend_BaseUrl}/todo/api/update/${formdata._id}/`, formdata)
       toast.success("Enquiry Updated Successfully", );
       setFormdata({
         title: '',
@@ -32,7 +32,7 @@ const Form = ({getTodos, formdata, setFormdata}) => {
         })
       }
     else{
-          await axios.post('http://localhost:8000/todo/api/insert/', formdata)
+          await axios.post(`${import.meta.env.VITE_Backend_BaseUrl}/todo/api/insert/`, formdata)
           .then((response) => {
             toast.success("Enquiry Saved Successfully", );
             setFormdata({
