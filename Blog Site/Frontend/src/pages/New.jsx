@@ -22,7 +22,7 @@ const handlesubmit = async (e) => {
       return toast.error('Please fill all the fields');
     }
     try {
-        const response = await axios.post('http://localhost:8000/blog/posts/', blog);
+        const response = await axios.post('${import.meta.env.VITE_Backend_BaseUrl}/blog/posts/', blog);
         if(response.status === 201) {
             toast.success('Blog post created successfully');
             setBlog({ title: '', content: '' }); // Reset the form

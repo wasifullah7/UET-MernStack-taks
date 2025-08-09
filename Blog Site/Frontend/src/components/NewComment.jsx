@@ -22,7 +22,7 @@ const NewComment = ({blogId, getComments}) => {
             return toast.error('Please fill all the fields');
         }
         try{
-            const response = await axios.post(`http://localhost:8000/blog/posts/${blogId}/comments/`, comment);
+            const response = await axios.post(`${import.meta.env.VITE_Backend_BaseUrl}/blog/posts/${blogId}/comments/`, comment);
             if(response.status === 201) {
                 toast.success('Comment created successfully');
                 setComment({ username: '', content: '' }); // Reset the form

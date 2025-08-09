@@ -7,7 +7,7 @@ const Comments = ({ blogId }) => {
 
   let getComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/blog/posts/${blogId}/comments/`);
+      const response = await axios.get(`${import.meta.env.VITE_Backend_BaseUrl}/blog/posts/${blogId}/comments/`);
       if (response.status === 200) {
         setComments(response.data);
       }

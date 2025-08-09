@@ -15,7 +15,7 @@ function App() {
 
   let getBlogs = async () => {
     try {
-      await axios.get('http://localhost:8000/blog/posts/').then((response) => {
+      await axios.get(`${import.meta.env.VITE_Backend_BaseUrl}/blog/posts/`).then((response) => {
         setBlogs(response.data);
       })
     } catch (error) {
